@@ -7,7 +7,7 @@ router.get("/", async function (req, res, next) {
   let products = await Product.find();
   console.log(req.session.user);
   console.log("products: ", products);
-  res.render("products/list", { title: "Products In DB", products });
+  res.render("products/list", { title: "Products", products });
 });
 router.get("/add", checkSessionAuth, async function (req, res, next) {
   res.render("products/add");

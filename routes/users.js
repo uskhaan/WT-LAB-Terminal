@@ -2,8 +2,7 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/user");
 var { validate } = require("../models/user");
-// var { validateUser } = require("../models/user");
-/* GET users listing. */
+
 router.get("/register", function (req, res, next) {
   res.render("users/register");
 });
@@ -22,7 +21,7 @@ router.post("/login", async function (req, res, next) {
   });
   if (!user)
     return res.render("users/login", {
-      error: "Invalid Username or Passsword",
+      error: "Invalid Email or Passsword",
     });
   req.session.user = user;
   return res.redirect("/");
@@ -31,7 +30,7 @@ router.post("/register", async function (req, res, next) {
   let user = await User.findOne({ email: req.body.email });
   if (user)
     return res.render("users/register", {
-      error: "User with given Email already exist",
+      error: "Email Already exists",
     });
   let { error } = validate(req.body, user);
   if (error) {
