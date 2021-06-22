@@ -14,3 +14,34 @@ html
     .container
       include ./partials/navbar
       block content
+
+    //Addin star
+    .container
+  .row
+    .col-lg-12
+      .star-rating
+        span.fa.fa-star-o(data-rating='1')
+        span.fa.fa-star-o(data-rating='2')
+        span.fa.fa-star-o(data-rating='3')
+        span.fa.fa-star-o(data-rating='4')
+        span.fa.fa-star-o(data-rating='5')
+        input.rating-value(type='hidden' name='whatever1' value='2.56')
+  .row
+    .col-lg-12
+      .star-rating
+        span.fa.fa-star-o(data-rating='1')
+        span.fa.fa-star-o(data-rating='2')
+        span.fa.fa-star-o(data-rating='3')
+        span.fa.fa-star-o(data-rating='4')
+        span.fa.fa-star-o(data-rating='5')
+        input.rating-value(type='hidden' name='whatever2' value='1.9')
+  .row
+    .col-lg-12
+      .star-rating
+        span.fa.fa-star-o(data-rating='1')
+        span.fa.fa-star-o(data-rating='2')
+        span.fa.fa-star-o(data-rating='3')
+        span.fa.fa-star-o(data-rating='4')
+        span.fa.fa-star-o(data-rating='5')
+        input.rating-value(type='hidden' name='whatever3' value='4.1')
+
