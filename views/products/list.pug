@@ -10,30 +10,24 @@ block content
         thead
             tr
                 th Name
+                th Description
                 th Price
-                th Actions
-                th Ratings
+                th Actions           
+                th Rating     
         tbody
             each product in products
                 tr
                     td=product.name
+                    td=product.description
                     td=product.price
                     td
                         a(href="/products/delete/"+product._id, class="btn btn-danger") Delete
                         a(href="/products/edit/"+product._id, class="btn btn-warning") Edit
                         a(href="/products/cart/"+product._id, class="btn btn-info") Add To Cart
-
-                    td
-                         form(action="/products/rating",method="post")
-                            .rate
-                                input#star5(type='radio' name='rate' value='5')
-                                label(for='star5' title='text') 5 stars
-                                input#star4(type='radio' name='rate' value='4')
-                                label(for='star4' title='text') 4 stars
-                                input#star3(type='radio' name='rate' value='3')
-                                label(for='star3' title='text') 3 stars
-                                input#star2(type='radio' name='rate' value='2')
-                                label(for='star2' title='text') 2 stars
-                                input#star1(type='radio' name='rate' value='1')
-                                label(for='star1' title='text') 1 star
-                                input(type="submit", class="btn btn-info")
+                    - if (product.rating)
+                        td 
+                            -var n = 0
+                            while n < product.rating
+                                span.fa.fa-star.checked
+                                - n ++
+    

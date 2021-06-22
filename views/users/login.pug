@@ -2,11 +2,12 @@ extends ../layout
 
 block content
   h1 Login
+  p(style="color:red")= error
   form(action="/login",method="post")        
         .form-group
             label(for="email") Email
-            input#email(type="text", class="form-control", name="email" value="usman.akram@gmail.com")
+            input#email(type="text", class="form-control", name="email" value="muqbausman@gmail.com")
         .form-group
             label(for="password") Password
-            input#price(type="password", class="form-control", name="password", value="usman")
+            input#price(type="password", class="form-control", name="password", value="muqbausman")
         input(type="submit", class="btn btn-info" value="Login")

@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/user");
+var { validate } = require("../models/user");
+// var { validateUser } = require("../models/user");
 /* GET users listing. */
 router.get("/register", function (req, res, next) {
   res.render("users/register");
@@ -12,17 +14,34 @@ router.get("/logout", function (req, res, next) {
   req.session.user = null;
   res.redirect("/login");
 });
+
 router.post("/login", async function (req, res, next) {
   let user = await User.findOne({
     email: req.body.email,
     password: req.body.password,
   });
-  if (!user) return res.redirect("/login");
+  if (!user)
+    return res.render("users/login", {
+      error: "Invalid Username or Passsword",
+    });
   req.session.user = user;
   return res.redirect("/");
 });
 router.post("/register", async function (req, res, next) {
-  let user = new User(req.body);
+  let user = await User.findOne({ email: req.body.email });
+  if (user)
+    return res.render("users/register", {
+      error: "User with given Email already exist",
+    });
+  let { error } = validate(req.body, user);
+  if (error) {
+    console.log(error.details[0].message);
+    return res.render("users/register", {
+      error: error.details[0].message,
+    });
+  }
+
+  user = new User(req.body);
   await user.save();
   res.redirect("/");
 });
