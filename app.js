@@ -42,7 +42,7 @@ app.use(function (err, req, res, next) {
 });
 
 mongoose
-  .connect("mongodb+srv://gasolel:gasolel@cluster0.i0r77.mongodb.net/DevProduct?retryWrites=true&w=majority", {
+  .connect("mongodb+srv://gasolel:gasolel@cluster0.i0r77.mongodb.net/DevProduction?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
