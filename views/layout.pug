@@ -4,6 +4,7 @@ html
     title= title
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -15,33 +16,4 @@ html
       include ./partials/navbar
       block content
 
-    //Addin star
-    .container
-  .row
-    .col-lg-12
-      .star-rating
-        span.fa.fa-star-o(data-rating='1')
-        span.fa.fa-star-o(data-rating='2')
-        span.fa.fa-star-o(data-rating='3')
-        span.fa.fa-star-o(data-rating='4')
-        span.fa.fa-star-o(data-rating='5')
-        input.rating-value(type='hidden' name='whatever1' value='2.56')
-  .row
-    .col-lg-12
-      .star-rating
-        span.fa.fa-star-o(data-rating='1')
-        span.fa.fa-star-o(data-rating='2')
-        span.fa.fa-star-o(data-rating='3')
-        span.fa.fa-star-o(data-rating='4')
-        span.fa.fa-star-o(data-rating='5')
-        input.rating-value(type='hidden' name='whatever2' value='1.9')
-  .row
-    .col-lg-12
-      .star-rating
-        span.fa.fa-star-o(data-rating='1')
-        span.fa.fa-star-o(data-rating='2')
-        span.fa.fa-star-o(data-rating='3')
-        span.fa.fa-star-o(data-rating='4')
-        span.fa.fa-star-o(data-rating='5')
-        input.rating-value(type='hidden' name='whatever3' value='4.1')
 
