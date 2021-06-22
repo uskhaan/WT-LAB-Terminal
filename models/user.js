@@ -13,7 +13,7 @@ function validateUser(data) {
     name: Joi.string().min(3).max(50).required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(3).max(10).required(),
-    gender: Joi.String().required,
+    gender: Joi.string().required,
   });
   return schema.validate(data, { abortEarly: false });
 }
